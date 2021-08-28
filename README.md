@@ -106,7 +106,16 @@ def add():
     return render_template("add.html")
 ```
 
+------------------------
 
+### API Requests
+```
+import requests
+
+response = requests.get("https://jsonplaceholder.typicode.com/users", params={"email":'Shanna@melissa.tv'})
+response_data = response.json()
+print(response_data)
+```
 
 
 
