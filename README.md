@@ -1,6 +1,7 @@
 # Flask
 
-## flask-start
+## flask routes
+### flask-start
 ```
 from flask import Flask
 
@@ -15,7 +16,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
-## render_template, redirect and url_for
+### render_template, redirect and url_for
 ```
 from flask import Flask, render_template, redirect, url_for
 
@@ -45,7 +46,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
-## Request Method
+### Request Method
 ```
 from flask import Flask, render_template, redirect, url_for, request
 
@@ -56,7 +57,7 @@ def add():
 ```
 
 
-## Request Form
+### Request Form
 ```
 HTML
 <form method="post" action="{{ url_for('add') }}">
@@ -82,7 +83,7 @@ def add():
     return render_template("add.html")
 ```
 
-## Request Argument
+### Request Argument
 ```
 HTML
 <form method="post" action="{{ url_for('add', data = 'data') }}">
