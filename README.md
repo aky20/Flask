@@ -82,7 +82,28 @@ def add():
     return render_template("add.html")
 ```
 
+## Request Argument
+```
+HTML
+<form method="post" action="{{ url_for('add', data = 'data') }}">
+    <div class="input_fields">
+        <input type="text" name="name" id="name" placeholder="Name" required><br>
+        <input type="password" name="password" id="password" placeholder="Password" required><br>
+        <input type="email" name="email" id="email" placeholder="Email" required><br>
+    </div>
+    <button class="rounded_gradiant_md_btn">
+        Submit
+    </button>
+</form>
 
+FLASK
+@app.route("/add", methods=['GET', 'POST'])
+def add():
+    if request.method == 'POST':
+        print(request.args['data'])
+        return redirect(url_for('home'))
+    return render_template("add.html")
+```
 
 
 
