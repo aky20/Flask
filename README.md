@@ -21,7 +21,7 @@ if __name__ == "__main__":
 python your_directory.py
 ```
 
-### render_template, redirect and url_for
+### routes, render_template, redirect and url_for
 ```
 from flask import Flask, render_template, redirect, url_for
 
