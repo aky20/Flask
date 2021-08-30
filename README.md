@@ -26,13 +26,22 @@ python main.py
 WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
 ```
-
+-------------------------------
+### Default ENV is production
 #### Try this (command line)
 ```
 set FLASK_APP=main.py
 set FLASK_ENV=development
 flask run
 ```
+
+#### Try this (Bash)
+```
+export FLASK_APP=main.py
+export FLASK_ENV=development
+flask run
+```
+
 ---------------------------
 
 ### [Configuration](https://flask.palletsprojects.com/en/2.0.x/config/)
@@ -99,7 +108,7 @@ def delete():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
-
+----------------------------------
 ### Request Method
 ```
 from flask import Flask, render_template, redirect, url_for, request
@@ -109,9 +118,13 @@ def add():
     print(request.method)
     return render_template("add.html")
 ```
-
+----------------------------
 
 ### Request Form
+```
+request.form['name']
+```
+
 ```
 HTML
 <form method="post" action="{{ url_for('add') }}">
@@ -138,6 +151,12 @@ def add():
 ```
 
 ### Request Argument
+```
+<form method="post" action="{{ url_for('add', data = 'data') }}">
+
+request.args['data']
+```
+
 ```
 HTML
 <form method="post" action="{{ url_for('add', data = 'data') }}">
@@ -170,8 +189,7 @@ response = requests.get("https://jsonplaceholder.typicode.com/users", params={"e
 response_data = response.json()
 print(response_data)
 ```
-
-
+-------------------
 
 
 
