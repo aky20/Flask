@@ -18,8 +18,57 @@ if __name__ == "__main__":
 
 #### Run
 ```
-python your_directory.py
+python main.py
 ```
+
+#### Warning
+```
+WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+```
+
+#### Try this (command line)
+```
+set FLASK_APP=main.py
+set FLASK_ENV=development
+flask run
+```
+---------------------------
+
+### [Configuration](https://flask.palletsprojects.com/en/2.0.x/config/)
+config.py
+```
+class Config(object):
+    DEBUG = False
+    TESTING = False
+
+
+class ProductionConfig(Config):
+    ENV = 'production'
+
+
+class DevelopmentConfig(Config):
+    ENV = 'development'
+    DEBUG = True
+```
+
+main.py
+```
+from flask import Flask
+
+app = Flask(__name__)
+app.config.from_object("config.DevelopmentConfig")
+
+@app.route('/')
+def home():
+    return "home"
+
+if __name__ == "__main__":
+    app.run()
+```
+
+
+----------------------------
 
 ### routes, render_template, redirect and url_for
 ```
