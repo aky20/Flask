@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
 ### routes, render_template, redirect and url_for
 ```
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -90,8 +90,9 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/add")
-def add():
+@app.route("/add/<data>")
+def add(data):
+    print(data)
     return render_template("add.html")
 
 
@@ -102,6 +103,8 @@ def update():
 
 @app.route("/delete")
 def delete():
+    name = request.args.get("name")
+    print(name)
     return redirect(url_for('home'))
 
 
