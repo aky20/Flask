@@ -28,6 +28,25 @@ WARNING: This is a development server. Do not use it in a production deployment.
 ```
 -------------------------------
 ### Default ENV is production
+
+#### Copy this in main.py
+```
+from flask import Flask
+
+app = Flask(__name__)
+app.config['ENV'] = 'development'
+
+# creating route
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+Or
+
 #### Try this (command line)
 ```
 set FLASK_APP=main.py
