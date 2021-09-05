@@ -130,6 +130,17 @@ def delete():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
+----------------------------
+### Errors
+```
+@app.route('/download')
+def download():
+    flask.abort(404)
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return "Page Not Found"
+```
 ----------------------------------
 ### Request Method
 ```
